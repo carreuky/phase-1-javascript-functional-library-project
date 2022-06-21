@@ -1,10 +1,10 @@
 
-const inputData = function(collection) {
+let inputData = function(collection) {
     return (collection instanceof Array) ? collection.slice() : Object.values(collection);
   }
   
-const myEach = function(collection, callback) {
-   const newCollection = inputData(collection);
+let myEach = function(collection, callback) {
+   let newCollection = inputData(collection);
   
     for (let idx = 0; idx < newCollection.length; idx++) {
       callback(newCollection[idx]);
@@ -13,10 +13,10 @@ const myEach = function(collection, callback) {
     return collection;
 }
   
-const myMap = function(collection, callback) {
-    const newCollection = inputData(collection);
+let myMap = function(collection, callback) {
+    let newCollection = inputData(collection);
   
-    const newArr = [];
+    let newArr = [];
   
     for (let idx = 0; idx < newCollection.length; idx++) {
       newArr.push(callback(newCollection[idx]));
@@ -25,7 +25,7 @@ const myMap = function(collection, callback) {
     return newArr;
 }
   
-const myReduce = function(collection, callback, acc) {
+let myReduce = function(collection, callback, acc) {
     let newCollection = inputData(collection);
   
     if (!acc) {
@@ -33,7 +33,7 @@ const myReduce = function(collection, callback, acc) {
       newCollection = newCollection.slice(1);
     }
   
-const len = newCollection.length;
+let len = newCollection.length;
   
     for (let i = 0; i < len; i++) {
       acc = callback(acc, newCollection[i], newCollection);
@@ -41,8 +41,8 @@ const len = newCollection.length;
     return acc;
   }
   
-const myFind = function(collection, predicate) {
-    const newCollection = inputData(collection);
+let myFind = function(collection, predicate) {
+    let newCollection = inputData(collection);
   
     for (let idx = 0; idx < newCollection.length; idx++) {
       if (predicate(newCollection[idx])) return newCollection[idx];
@@ -51,10 +51,10 @@ const myFind = function(collection, predicate) {
     return undefined;
 }
   
-const myFilter = function(collection, predicate) {
-    const newCollection = inputData(collection);
+let myFilter = function(collection, predicate) {
+    let newCollection = inputData(collection);
   
-    const newArr = [];
+    let newArr = [];
   
     for (let idx = 0; idx < newCollection.length; idx++) {
       if (predicate(newCollection[idx])) newArr.push(newCollection[idx]);
@@ -63,20 +63,20 @@ const myFilter = function(collection, predicate) {
     return newArr;
 }
   
-const mySize = function(collection) {
+let mySize = function(collection) {
     const newCollection = inputData(collection);
     return newCollection.length;
 }
 
-const myFirst = function(arr, stop=false) {
+let myFirst = function(arr, stop=false) {
     return (stop) ? arr.slice(0, stop) : arr[0];
 }
   
-  const myLast = function(arr, start=false) {
+  let myLast = function(arr, start=false) {
     return (start) ? arr.slice(arr.length-start, arr.length) : arr[arr.length-1];
 }
   
-const mySortBy = function(arr, callback) {
+let mySortBy = function(arr, callback) {
     const newArr = [...arr];
     return newArr.sort(function(a, b) {
       if (callback(a) > callback(b)) {
@@ -89,13 +89,13 @@ const mySortBy = function(arr, callback) {
     });
 }
   
-const unpack = function(receiver, arr) {
+let unpack = function(receiver, arr) {
     for (let val of arr) {
       receiver.push(val);
     }
 }
   
-const myFlatten = function(collection, shallow, newArr=[]) {
+let myFlatten = function(collection, shallow, newArr=[]) {
     if (shallow) {
       for (let val of collection) {
         Array.isArray(val) ? unpack(newArr, val) : newArr.push(val);
@@ -112,16 +112,17 @@ const myFlatten = function(collection, shallow, newArr=[]) {
     return newArr;
 }
     
-const myKeys = function(obj) {
-    const keys = [];
+let myKeys = function(obj) {
+    let keys = [];
     for (let key in obj){
       keys.push(key);
     }
     return keys;
 }
   
-const myValues = function(obj) {
-    const values = [];
+let myValues = function(obj) {
+    let
+ values = [];
     for (let key in obj){
       values.push(obj[key]);
     }
