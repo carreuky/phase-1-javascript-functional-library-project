@@ -101,7 +101,6 @@ function myLast(collection, index){
 
 
 function myKeys(collection){
-  // let newCollection = standardize(collection)
   let keyys = []
 
   for(let key in collection){
@@ -110,8 +109,8 @@ function myKeys(collection){
   return keyys
 }
 
-let mk = {
-  name : "kariuki", 
+let pl = {
+  name : "Paul", 
   gender : "male"
 }
 
@@ -123,7 +122,7 @@ function myValues(collection){
   return values
 }
 
-console.log(myValues(mk))
+console.log(myValues(pl))
 
 
 function standardize (collection){
@@ -133,7 +132,3 @@ function standardize (collection){
         return Object.values(collection)
 } };
 
-// let k = {}
-// if(typeof(k) === 'object'){
-//   console.log("true")
-// }
